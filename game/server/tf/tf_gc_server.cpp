@@ -40,6 +40,8 @@
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
 
+ConVar mp_dont_verify_items = ConVar("mp_dont_verify_items", "0", FCVAR_NEVER_AS_STRING | FCVAR_PROTECTED, "");
+
 using namespace GCSDK;
 
 static const char* GetWebBaseUrl()
@@ -4358,7 +4360,7 @@ void CTFGCServerSystem::SDK_ApplyLocalLoadout(CGCClientSharedObjectCache* pCache
 	for (uint32 i = 0; i < pItemCache->GetCount(); ++i)
 	{
 		CEconItem* pItem = (CEconItem*)pItemCache->GetObject(i);
-		if (!pItem)
+		if (pItem || mp_dont_verify_items.GetBool()) {
 			continue;
 		pTFInventory->UnequipLocal(pItem->GetID());
 		pItem->Unequip();

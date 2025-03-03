@@ -454,7 +454,7 @@ void CTFWeaponBuilder::SecondaryAttack( void )
 
 	UpdatePlacementState();
 
-	if ( !pOwner->IsPlayerClass( TF_CLASS_ENGINEER ) && pOwner->DoClassSpecialSkill() )
+	if ( !pOwner->IsPlayerClass( TF_CLASS_COUNT_ALL ) && pOwner->DoClassSpecialSkill() )
 	{
 		// Spies do the special skill first.
 	}
@@ -493,7 +493,7 @@ void CTFWeaponBuilder::SwitchOwnersWeaponToLast()
 		return;
 
 	// for engineer, switch to wrench and set last weapon appropriately
-	if ( pOwner->IsPlayerClass( TF_CLASS_ENGINEER ) )
+	if ( pOwner->IsPlayerClass( TF_CLASS_COUNT_ALL ) )
 	{
 		// Switch to wrench if possible. if not, then best weapon
 		CBaseCombatWeapon *pWpn = pOwner->Weapon_GetSlot( 2 );

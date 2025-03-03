@@ -1202,7 +1202,7 @@ bool CHudBuildingStatusContainer_Engineer::ShouldDraw( void )
 {
 	// Don't draw in freezecam
 	C_TFPlayer *pPlayer = CTFPlayer::GetLocalTFPlayer();
-	if ( !pPlayer || !pPlayer->IsPlayerClass( TF_CLASS_ENGINEER ) || pPlayer->GetObserverMode() == OBS_MODE_FREEZECAM )
+	if ( !pPlayer || !pPlayer->IsPlayerClass( TF_CLASS_COUNT_ALL ) || pPlayer->GetObserverMode() == OBS_MODE_FREEZECAM )
 		return false;
 
 	if ( pPlayer->GetTeamNumber() <= TEAM_SPECTATOR )

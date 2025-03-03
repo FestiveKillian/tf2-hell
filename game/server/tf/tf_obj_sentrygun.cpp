@@ -2003,7 +2003,7 @@ int CObjectSentrygun::OnTakeDamage( const CTakeDamageInfo &info )
 			if ( iPrevLifetimeShieldedDamage <= kMaxDamageForAchievement && m_iLifetimeShieldedDamage > kMaxDamageForAchievement )
 			{
 				CTFPlayer *pOwner = ToTFPlayer( GetOwner() );
-				if ( pOwner && pOwner->IsPlayerClass( TF_CLASS_ENGINEER ) )
+				if ( pOwner && pOwner->IsPlayerClass( TF_CLASS_COUNT_ALL ) )
 				{
 					pOwner->AwardAchievement( ACHIEVEMENT_TF_ENGINEER_MANUAL_SENTRY_ABSORB_DMG );
 				}
